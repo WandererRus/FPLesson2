@@ -5,11 +5,46 @@
 #include <string>
 #include <windows.h>
 using namespace std;
+
+void MultiplyPrintSymbol(int count, char symbol, char startSymbol, char endSymbol)
+{
+    int counter = count + 2;
+    string str = new char[counter];
+    for (int i = 1; i < counter-1; i++)
+    {
+        str[i] = symbol;
+    }
+    str[0] = startSymbol;
+    str[counter - 1] = endSymbol;
+    cout << str << endl;
+}
+void MultiplyPrintSymbolWithTextOnCenter(int count, char symbol, char startSymbol, char endSymbol,int lengthText, string textInCenter)
+{
+    int counter = count + 2 - lengthText;
+    int counterFirst = counter / 2 + lengthText % 2;
+    int counterEnd = counter / 2;
+    string str = new char[counter];
+    for (int i = 1; i < counterFirst; i++)
+    {
+        str[i] = symbol;
+    }
+    for (int i = counterFirst; i < counterFirst + lengthText; i++)
+    {
+        str[i] = textInCenter[i-counterFirst];
+    }
+    for (int i = counterFirst + lengthText; i < counter; i++)
+    {
+        str[i] = symbol;
+    }
+    str[0] = startSymbol;
+    str[counter - 1] = endSymbol;
+    cout << str << endl;
+}
 int main()
 {    
-    // Задача 1
+    // Задача 1 и 2
 
-    SetConsoleCP(1251);
+    /*SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     setlocale(LC_ALL, "Russian");
     string name = new char[50];
@@ -36,7 +71,31 @@ int main()
     Beep(3330, 400); Sleep(100);
     
     cout << "Name: " << "\"" << name << "\" \n" << "Author: " << "\"" << author << "\" \n" << "Publisher: " << "\"" << publisher << "\" \n" << "Pages: " << "\"" << pages << "\" \n";
-    
+    */
+    // Задача 3
+
+
+
+
+    CONST char vertical = (char)186;
+    CONST char leftTopCorner = (char)201;
+    CONST char rightTopCorner = (char)187;
+    CONST char leftBottomCorner = (char)200;
+    CONST char rightBottomCorner = (char)188;
+    CONST char horizontal = (char)205;
+
+    MultiplyPrintSymbol(80, horizontal, leftTopCorner, rightTopCorner);
+
+    for (int i = 0; i < 3; i++)
+    {
+        MultiplyPrintSymbol(80, ' ', vertical, vertical);
+    }
+    MultiplyPrintSymbolWithTextOnCenter(92, ' ', vertical, vertical, 12, "Vremena goda");
+    for (int i = 0; i < 3; i++)
+    {
+        MultiplyPrintSymbol(80, ' ', vertical, vertical);
+    }
+    MultiplyPrintSymbol(80, horizontal, leftBottomCorner, rightBottomCorner);
     return 0;
 }
 
