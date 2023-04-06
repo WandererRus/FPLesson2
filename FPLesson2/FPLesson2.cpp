@@ -7,6 +7,8 @@
 using namespace std;
 int main()
 {    
+    // Задача 1
+
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     setlocale(LC_ALL, "Russian");
@@ -25,9 +27,13 @@ int main()
     getline(cin, pages);
 
     cout << "Name: " << "\"" << name << "\" \n";
+    Beep(120, 100); Sleep(100);
     cout << "Author: " << "\"" << author << "\" \n";
+    Beep(630, 200); Sleep(100);
     cout << "Publisher: " << "\"" << publisher << "\" \n";
+    Beep(1330, 300); Sleep(100);
     cout << "Pages: " << "\"" << pages << "\" \n";
+    Beep(3330, 400); Sleep(100);
     
     cout << "Name: " << "\"" << name << "\" \n" << "Author: " << "\"" << author << "\" \n" << "Publisher: " << "\"" << publisher << "\" \n" << "Pages: " << "\"" << pages << "\" \n";
     
